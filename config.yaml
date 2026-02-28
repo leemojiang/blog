@@ -3,7 +3,7 @@
 # ──────────────────────────────────────────────────────────────────────────────
 
 # 站点根 URL（务必以 / 结尾）
-baseURL: "http://leemojiang.github.io/blog/"
+baseURL: "https://leemojiang.github.io/blog/"
 # baseURL: "http://localhost:1313/blog/"
 
 
