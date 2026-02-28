@@ -16,6 +16,11 @@ jobs:
       with: 
         submodules: true
 
+    - name: Debug submodule origin
+      run: |
+        cd theme/PaperMod
+        git remote -v
+
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
