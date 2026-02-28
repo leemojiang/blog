@@ -1,0 +1,28 @@
+# Hugo build output
+public/
+resources/
+
+# Hugo cache (Hugo 0.111+ 会使用这个目录)
+.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Node.js (仅当你使用 npm 管理 PaperMod assets)
+node_modules/
+
+# GitHub Pages (如果你用 gh-pages 分支部署)
+gh-pages/
+
+# Backup files
+*~
+*.swp
+*.bak

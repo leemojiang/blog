@@ -1,0 +1,315 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# 基础站点配置（全局）
+# ──────────────────────────────────────────────────────────────────────────────
+
+# 站点根 URL（务必以 / 结尾）
+baseURL: "http://leemojiang.github.io/blog/"
+# baseURL: "http://localhost:1313/blog/"
+
+
+
+# 站点标题（默认语言使用）
+title: "LEE's Blog"
+
+# 使用 PaperMod 主题（支持数组写法）
+theme: ["PaperMod"]
+
+# 默认语言（必须与 languages.*.languageCode 对应）
+languageCode: "en-us"
+
+# Hugo 输出目录（默认 public，可自定义）
+publishDir: "public"
+
+
+# 分页配置（pagerSize = 每页文章数）
+pagination:
+  pagerSize: 10
+
+# 构建相关选项
+enableGitInfo: false          # 是否使用 Git 最近一次 commit 作为文章更新时间
+enableRobotsTXT: true         # 自动生成 robots.txt
+buildDrafts: false            # 是否构建草稿
+buildFuture: false            # 是否构建未来日期文章
+buildExpired: false           # 是否构建过期文章
+enableInlineShortcodes: true  # 允许 Markdown 内嵌 shortcode
+enableEmoji: true             # 支持 emoji
+pygmentsUseClasses: true      # 代码高亮使用 CSS class（更适合 PaperMod）
+mainsections: ["posts"]       # 主内容目录
+
+# 输出压缩（提升加载速度）
+minify:
+  disableXML: true
+  minifyOutput: true
+
+# 禁用全局 RSS（PaperMod 会在需要的地方单独启用）
+disableKinds:
+  - rss
+
+# Google Analytics（如不需要可删除）
+# googleAnalytics: ""
+
+# 首页输出格式（JSON 用于搜索功能）
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Markdown / 数学公式 / TOC（目录）配置
+# ──────────────────────────────────────────────────────────────────────────────
+
+markup:
+  # ─────────────────────────────────────────────────────────────
+  # 目录（TOC）配置：控制文章右侧/顶部目录的生成方式
+  # ─────────────────────────────────────────────────────────────
+  tableOfContents:
+    startLevel: 2     # 从 h2（##）开始生成目录
+    endLevel: 4       # 到 h4（####）为止
+    ordered: false    # 使用无序列表（圆点），而不是数字列表
+
+  # ─────────────────────────────────────────────────────────────
+  # Goldmark：Hugo 默认 Markdown 引擎的所有高级配置
+  # ─────────────────────────────────────────────────────────────
+  goldmark:
+    duplicateResourceFiles: false   # 避免重复生成资源文件，减少构建体积
+
+    extensions:
+      # CJK（中文排版）扩展：你参考的配置中关闭了它
+      cjk:
+        enable: false               # 是否启用 CJK 扩展（中文断行优化）
+        eastAsianLineBreaks: false  # 是否启用东亚断行规则
+        eastAsianLineBreaksStyle: simple
+        escapedSpace: false
+
+      # 定义列表（Definition List）
+      definitionList: true          # 支持 “术语: 定义” 的 Markdown 语法
+
+      # extras：一组额外的 Markdown 扩展（你参考的配置全部关闭）
+      extras:
+        delete:
+          enable: false             # ~~删除线~~（关闭）
+        insert:
+          enable: false             # 下划线（关闭）
+        mark:
+          enable: false             # 高亮（关闭）
+        subscript:
+          enable: false             # 下标（关闭）
+        superscript:
+          enable: false             # 上标（关闭）
+
+      # 脚注
+      footnote: true                # 支持脚注语法 [^1]
+
+      # 自动识别 URL 并转成链接
+      linkify: true
+      linkifyProtocol: https        # 自动链接默认使用 https
+
+      # 数学公式 passthrough：允许 $$...$$、\[...\]、\(...\)
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - \(
+              - \)
+      # 删除线
+      strikethrough: true
+      # 表格
+      table: true
+      # 任务列表
+      taskList: true                # 支持 - [x] 任务列表
+
+      # Typographer：智能排版（引号、破折号、…）
+      typographer:
+        disable: false              # 开启智能排版
+        apostrophe: '&rsquo;'       # ’
+        ellipsis: '&hellip;'        # …
+        emDash: '&mdash;'           # —
+        enDash: '&ndash;'           # –
+        leftAngleQuote: '&laquo;'   # «
+        rightAngleQuote: '&raquo;'  # »
+        leftDoubleQuote: '&ldquo;'  # “
+        rightDoubleQuote: '&rdquo;' # ”
+        leftSingleQuote: '&lsquo;'  # ‘
+        rightSingleQuote: '&rsquo;' # ’
+
+    # ─────────────────────────────────────────────────────────────
+    # Markdown 解析器行为
+    # ─────────────────────────────────────────────────────────────
+    parser:
+      attribute:
+        block: false                # 是否允许块级元素使用属性（关闭）
+        title: true                 # 是否允许标题使用属性
+      autoHeadingID: true           # 自动为标题生成 ID（用于 TOC）
+      autoHeadingIDType: github     # 标题 ID 使用 GitHub 风格
+      wrapStandAloneImageWithinParagraph: true  # 单独图片自动包裹 <p>
+
+    # ─────────────────────────────────────────────────────────────
+    # Render Hooks：控制图片和链接的渲染方式
+    # PaperMod 会使用自己的渲染方式，所以这里关闭默认渲染
+    # ─────────────────────────────────────────────────────────────
+    renderHooks:
+      image:
+        enableDefault: false        # 禁用 Hugo 默认图片渲染
+      link:
+        enableDefault: false        # 禁用 Hugo 默认链接渲染
+
+    # ─────────────────────────────────────────────────────────────
+    # 最终 HTML 输出行为
+    # ─────────────────────────────────────────────────────────────
+    renderer:
+      hardWraps: false              # 不强制换行
+      unsafe: false                 # 不允许 Markdown 中直接写 HTML（更安全）
+      xhtml: false                  # 不使用 XHTML 风格标签
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# 多语言配置（双语言：英文 + 中文）
+# ──────────────────────────────────────────────────────────────────────────────
+
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    contentDir: "content/en"
+    languageCode: "en-us"
+    title: "Home"
+
+    params:
+      env: production
+      author: "LEE"
+      title: "LEE's Blog"
+      description: "LEE’s personal blog about LLMs, agents, engineering, and research."
+      keywords: [Blog, LLM, Agent, PaperMod]
+
+      # 日期格式
+      DateFormat: "2006-01-02"
+
+      # PaperMod 功能开关
+      defaultTheme: auto
+      disableThemeToggle: false
+      ShowReadingTime: true
+      ShowWordCount: true
+      ShowShareButtons: true
+      ShowPostNavLinks: true
+      ShowBreadCrumbs: true
+      ShowCodeCopyButtons: true
+      ShowLastMod: true
+      ShowLastModInList: true
+      UseHugoToc: true
+      showtoc: true
+      tocopen: false
+      comments: true
+      hidemeta: false
+      hideSummary: false
+
+      # 首页欢迎信息
+      homeInfoParams:
+        Title: "👋 Welcome to LEE's Blog"
+        Content: "This is LEE’s personal space for sharing insights on LLMs, agents, engineering, and research."
+
+      # 社交链接
+      socialIcons:
+        - name: github
+          url: "https://github.com/leemojiang"
+        # - name: email
+        #   url: "mailto:LEE@example.com"
+
+      # 搜索配置（Fuse.js）
+      fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        threshold: 0.4
+        distance: 1000
+        minMatchCharLength: 0
+        limit: 10
+        keys: ["title", "permalink", "summary", "content"]
+
+    menu:
+      main:
+        - name: Archive
+          url: /archives/
+          weight: 5
+        - name: Search
+          url: /search/
+          weight: 10
+        - identifier: tags
+          name: Tags
+          url: /tags/
+          weight: 20
+
+  zh:
+    languageName: "简体中文"
+    weight: 2
+    contentDir: "content/zh"
+    languageCode: "zh-cn"
+    title: "LEE 的博客"
+    hasCJKLanguage: true
+
+    params:
+      env: production
+      author: "LEE"
+      title: "LEE 的博客"
+      description: "LEE 的个人博客，专注 LLM、Agent、工程与研究。"
+      keywords: [博客, LLM, Agent, PaperMod]
+
+      DateFormat: "2006-01-02"
+
+      defaultTheme: auto
+      disableThemeToggle: false
+      ShowReadingTime: true
+      ShowWordCount: true
+      ShowShareButtons: true
+      ShowPostNavLinks: true
+      ShowBreadCrumbs: true
+      ShowCodeCopyButtons: true
+      ShowLastMod: true
+      ShowLastModInList: true
+      UseHugoToc: true
+      showtoc: true
+      tocopen: false
+      comments: true
+      hidemeta: false
+      hideSummary: false
+
+      homeInfoParams:
+        Title: "👋 欢迎来到 LEE 的博客"
+        Content: "这里是 LEE 的个人空间，用于记录和分享关于 LLM、Agent、工程与研究的见解。"
+
+      socialIcons:
+        - name: github
+          url: "https://github.com/leemojiang"
+        # - name: email
+        #   url: "mailto:LEE@example.com"
+
+      fuseOpts:
+        isCaseSensitive: false
+        shouldSort: true
+        threshold: 0.4
+        distance: 1000
+        minMatchCharLength: 0
+        limit: 10
+        keys: ["title", "permalink", "summary", "content"]
+
+      label:
+        text: "首页"
+        icon: /apple-touch-icon.png
+        iconHeight: 35
+
+    menu:
+      main:
+        - name: 归档
+          url: /archives/
+          weight: 5
+        - name: 搜索
+          url: /search/
+          weight: 10
+        - identifier: tags
+          name: 标签
+          url: /tags/
+          weight: 20
