@@ -3,6 +3,7 @@ title: "AI编程Agent技术调研：从实践到思考"
 date: 2026-03-02
 tags: [AI编程, Agent, Claude Code, 大语言模型, 上下文管理, MCP, 人机交互]
 categories: [LLM]
+math: true
 ---
 
 <!-- # AI编程Agent技术调研：从实践到思考
@@ -123,10 +124,10 @@ categories: [LLM]
 
 我认为这将是**下一次范式的巨大变化**。目前AI还停留在按照人类给出的整体操作进行规划和执行的阶段。也许有一天，AI会将"学习新能力"也视为可以规划和操作的目标——那将又是一次深远的变革。
 
-
+---
 ## 附录：Agent 计算模型的形式化定义
 
-虽然将 AI Agent 比作计算机是一种直观的工程类比，但从计算理论（Theory of Computation）的视角来看，这对应着从**有限状态机（FSM）**向 **图灵机（Turing Machine）** 的范式跃迁。为了更严谨地阐述这一观点，我们可以尝试对 Agent 的运行机制进行形式化描述。
+虽然将 AI Agent 比作计算机是一种直观的工程类比，但从计算理论（Theory of Computation）的视角来看，这对应着从**有限状态机（FSM）** 向 **图灵机（Turing Machine）** 的范式跃迁。为了更严谨地阐述这一观点，我们可以尝试对 Agent 的运行机制进行形式化描述。
 
 #### 1. 系统定义
 
@@ -171,3 +172,25 @@ Claude Code 等 Agent 的核心突破在于引入了**动态状态更新**。当
 从计算理论的角度看，Agent 的进化不仅仅是性能的提升，而是计算能力的**图灵完备化 (Turing Completeness)**。
 
 通过赋予 LLM 操纵读写头（Tool Use）和访问外部纸带（Context Management / MCP）的能力，我们正在见证它从一个只会概率预测的“中文房间”操作员，进化为一台真正的、运行着自然语言指令的**通用图灵机**。
+
+
+## 引用
+
+> **引用**：转载或引用本文内容时，请注明原作者和来源。
+
+**Cited as:**
+
+> LEE. (Feb 2026). AI编程Agent技术调研：从实践到思考.  
+https://leemojiang.github.io/blog/zh/posts/2026-03-02-aiAgent
+
+Or
+
+```bibtex
+@article{syhya2025normalization,
+  title   = "AI编程Agent技术调研：从实践到思考",
+  author  = "LEE",
+  journal = "leemojiang.github.io",
+  year    = "2026",
+  month   = "Feb",
+  url     = "https://leemojiang.github.io/blog/zh/posts/2026-03-02-aiAgent"
+}

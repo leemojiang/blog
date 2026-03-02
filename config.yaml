@@ -6,7 +6,9 @@
 baseURL: "https://leemojiang.github.io/blog/"
 # baseURL: "http://localhost:1313/blog/"
 
-
+params:
+  math: true 
+  mathjax: true
 
 # 站点标题（默认语言使用）
 title: "LEE's Blog"
@@ -116,6 +118,8 @@ markup:
             - - $$
               - $$
           inline:
+            - - $
+              - $
             - - \(
               - \)
       # 删除线
@@ -156,16 +160,16 @@ markup:
     # ─────────────────────────────────────────────────────────────
     renderHooks:
       image:
-        enableDefault: false        # 禁用 Hugo 默认图片渲染
+        useEmbedded: never          # 禁用 Hugo 默认图片渲染
       link:
-        enableDefault: false        # 禁用 Hugo 默认链接渲染
+        useEmbedded: never          # 禁用 Hugo 默认链接渲染
 
     # ─────────────────────────────────────────────────────────────
     # 最终 HTML 输出行为
     # ─────────────────────────────────────────────────────────────
     renderer:
       hardWraps: false              # 不强制换行
-      unsafe: false                 # 不允许 Markdown 中直接写 HTML（更安全）
+      unsafe: true                  # 允许 Markdown 中直接写 HTML（用于数学公式/高级渲染）
       xhtml: false                  # 不使用 XHTML 风格标签
 
 
