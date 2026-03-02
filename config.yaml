@@ -16,6 +16,7 @@ theme: ["PaperMod"]
 
 # 默认语言（必须与 languages.*.languageCode 对应）
 languageCode: "en-us"
+# defaultContentLanguage: "zh"
 
 # Hugo 输出目录（默认 public，可自定义）
 publishDir: "public"
