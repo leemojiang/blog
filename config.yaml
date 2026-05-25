@@ -7,8 +7,24 @@ baseURL: "https://leemojiang.github.io/blog/"
 # baseURL: "http://localhost:1313/blog/"
 
 params:
+  env: production
+  author: "LEE"
+  description: "LEE 的个人博客，记录 LLM、Agent、AI 编程、工程实践、FPV、旅行与个人研究笔记。"
+  keywords: [LEE, Blog, LLM, Agent, AI 编程, 工程实践, FPV, Hugo, PaperMod]
   math: true 
   mathjax: true
+  images: []
+  schema:
+    publisherType: Person
+    sameAs:
+      - "https://github.com/leemojiang"
+  analytics:
+    google:
+      SiteVerificationTag: "1KV4a977NZpLcPW85cn0mitZeYAdiIFP_Pu5OJW152c"
+    bing:
+      SiteVerificationTag: ""
+    yandex:
+      SiteVerificationTag: ""
 
 # 站点标题（默认语言使用）
 title: "LEE's Blog"
@@ -50,6 +66,16 @@ disableKinds:
 
 # Google Analytics（如不需要可删除）
 # googleAnalytics: ""
+# 新版 Hugo 也支持 services.googleAnalytics.ID；拿到 GA4 Measurement ID 后可启用。
+# services:
+#   googleAnalytics:
+#     ID: "G-XXXXXXXXXX"
+
+# Sitemap 会被 Google Search Console 使用；实际页面级 lastmod 由文章日期/lastmod 决定。
+sitemap:
+  changeFreq: weekly
+  filename: sitemap.xml
+  priority: 0.5
 
 # 首页输出格式（JSON 用于搜索功能）
 outputs:
@@ -183,7 +209,7 @@ languages:
     weight: 1
     contentDir: "content/en"
     languageCode: "en-us"
-    title: "Home"
+    title: "LEE's Blog"
 
     params:
       env: production
@@ -229,6 +255,7 @@ languages:
       fuseOpts:
         isCaseSensitive: false
         shouldSort: true
+        location: 0
         threshold: 0.4
         distance: 1000
         minMatchCharLength: 0
@@ -295,6 +322,7 @@ languages:
       fuseOpts:
         isCaseSensitive: false
         shouldSort: true
+        location: 0
         threshold: 0.4
         distance: 1000
         minMatchCharLength: 0
@@ -303,7 +331,7 @@ languages:
 
       label:
         text: "首页"
-        icon: /apple-touch-icon.png
+        icon: apple-touch-icon.png
         iconHeight: 35
 
     menu:
