@@ -64,12 +64,10 @@ minify:
 disableKinds:
   - rss
 
-# Google Analytics（如不需要可删除）
-# googleAnalytics: ""
-# 新版 Hugo 也支持 services.googleAnalytics.ID；拿到 GA4 Measurement ID 后可启用。
-# services:
-#   googleAnalytics:
-#     ID: "G-XXXXXXXXXX"
+# Google Analytics 4
+services:
+  googleAnalytics:
+    ID: "G-R22BREPQN8"
 
 # Sitemap 会被 Google Search Console 使用；实际页面级 lastmod 由文章日期/lastmod 决定。
 sitemap:
