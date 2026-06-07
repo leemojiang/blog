@@ -1,7 +1,7 @@
 ---
 title: "从 3D 打印到机械加工：理解公差配合与未注公差"
 date: 2026-06-06
-draft: true
+# draft: true
 tags:
   - 机械设计
   - 机械加工
