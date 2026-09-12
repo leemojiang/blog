@@ -1,6 +1,8 @@
 ---
 title: "使用EasyN2N解决跨运营商游戏联机丢包问题的实践记录"
 date: 2026-02-24
+aliases:
+  - /zh/posts/使用EasyN2N解决跨运营商游戏联机丢包问题的实践记录/
 tags: [游戏联机, 网络优化, 虚拟局域网, Docker, EasyN2N, 网络工程]
 categories: [技术实践]
 ---

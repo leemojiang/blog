@@ -4,6 +4,8 @@ date: 2026-03-05
 lastmod: 2026-03-05
 draft: false
 slug: "caching-your-mind-2025"
+aliases:
+  - /zh/posts/2025年总结笔记/
 description: "一篇口述整理的年终复盘：2025 年在强化学习/大模型实践、量化学习与生活方式上的折腾，以及对 AI、输出与项目落地的几点感受。"
 tags:
   - 年终总结

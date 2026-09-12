@@ -1,6 +1,8 @@
 ---
 title: "统一管理 Markdown 内容并多平台发布的实践笔记"
 date: 2026-02-21
+aliases:
+  - /zh/posts/统一管理 Markdown 内容并多平台发布的实践笔记/
 tags: [内容创作, Git, Hexo, mdBook, Subtree, 博客部署]
 categories: [技术实践]
 ---
