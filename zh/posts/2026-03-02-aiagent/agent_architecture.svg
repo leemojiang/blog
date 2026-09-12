@@ -1,0 +1,51 @@
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect x="0" y="0" width="800" height="500" fill="#f8f9fa" rx="10" />
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">AI Agent: 自然语言计算机架构</text>
+
+  <!-- 1. CPU (LLM) -->
+  <g transform="translate(300, 180)">
+    <rect x="0" y="0" width="200" height="140" fill="#e3f2fd" stroke="#2196f3" stroke-width="3" rx="10" />
+    <text x="100" y="40" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#1565c0">LLM (大脑)</text>
+    <text x="100" y="70" font-family="Arial" font-size="14" text-anchor="middle" fill="#555">推理 &amp; 决策核心</text>
+    <text x="100" y="110" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">CPU</text>
+  </g>
+
+  <!-- 2. RAM (Context Window) -->
+  <g transform="translate(300, 50)">
+    <rect x="0" y="0" width="200" height="80" fill="#fff3e0" stroke="#ff9800" stroke-width="3" rx="10" />
+    <text x="100" y="30" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#ef6c00">Context Window</text>
+    <text x="100" y="55" font-family="Arial" font-size="14" text-anchor="middle" fill="#555">当前激活的上下文</text>
+    <text x="230" y="45" font-family="Arial" font-size="16" font-weight="bold" fill="#333">RAM (内存)</text>
+  </g>
+
+  <!-- 连接 CPU 和 RAM -->
+  <path d="M400 130 L400 180" stroke="#999" stroke-width="4" />
+
+  <!-- 3. HDD (Project Files) -->
+  <g transform="translate(50, 350)">
+    <path d="M0,20 Q100,-10 200,20 L200,100 Q100,130 0,100 Z" fill="#eceff1" stroke="#607d8b" stroke-width="3" />
+    <text x="100" y="70" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#455a64">项目文件 &amp; 知识库</text>
+    <text x="100" y="130" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">HDD (硬盘)</text>
+  </g>
+
+  <!-- 连接 CPU 和 HDD (Agent自主读取) -->
+  <path d="M250 380 L350 320" stroke="#607d8b" stroke-width="3" stroke-dasharray="5,5" />
+  <text x="280" y="340" font-family="Arial" font-size="12" fill="#607d8b">自主加载/换页</text>
+
+  <!-- 4. I/O (MCP/Tools) -->
+  <g transform="translate(550, 350)">
+    <rect x="0" y="0" width="200" height="100" fill="#e8f5e9" stroke="#4caf50" stroke-width="3" rx="10" />
+    <text x="100" y="35" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#2e7d32">MCP / Tools</text>
+    <text x="100" y="60" font-family="Arial" font-size="14" text-anchor="middle" fill="#555">终端, 浏览器, API</text>
+    <text x="100" y="130" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">I/O (外设)</text>
+  </g>
+
+  <!-- 连接 CPU 和 I/O -->
+  <path d="M500 250 L650 350" stroke="#4caf50" stroke-width="3" />
+  <text x="600" y="290" font-family="Arial" font-size="12" fill="#2e7d32">执行操作</text>
+
+  <!-- 移除箭头定义 -->
+</svg>
