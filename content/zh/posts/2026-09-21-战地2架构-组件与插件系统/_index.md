@@ -23,13 +23,13 @@ description: >-
 
 ## 文件目录
 
-1. [战地 2 架构的核心边界]({{< relref "01-战地2架构的核心边界.md" >}})
-2. [Unity 中的低成本实现路径]({{< relref "02-Unity中的低成本实现路径.md" >}})
-3. [组件组合与依赖治理]({{< relref "03-组件组合与依赖治理.md" >}})
-4. [Hexagonal Architecture 与组件语义]({{< relref "04-Hexagonal-Architecture与组件语义.md" >}})
-5. [从 Plugin 到 Runtime 的组件简化]({{< relref "05-从Plugin到Runtime的组件简化.md" >}})
-6. [Super Runtime 与 Runtime View]({{< relref "06-Super-Runtime与Runtime-View.md" >}})
-7. [ISP 在游戏 Runtime 中的应用]({{< relref "07-ISP在游戏Runtime中的应用.md" >}})
+1. [战地 2 架构的核心边界](./01-战地2架构的核心边界.md)
+2. [Unity 中的低成本实现路径](./02-Unity中的低成本实现路径.md)
+3. [组件组合与依赖治理](./03-组件组合与依赖治理.md)
+4. [Hexagonal Architecture 与组件语义](./04-Hexagonal-Architecture与组件语义.md)
+5. [从 Plugin 到 Runtime 的组件简化](./05-从Plugin到Runtime的组件简化.md)
+6. [Super Runtime 与 Runtime View](./06-Super-Runtime与Runtime-View.md)
+7. [ISP 在游戏 Runtime 中的应用](./07-ISP在游戏Runtime中的应用.md)
 
 ## 整理顺序
 

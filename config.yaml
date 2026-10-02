@@ -180,13 +180,13 @@ markup:
 
     # ─────────────────────────────────────────────────────────────
     # Render Hooks：控制图片和链接的渲染方式
-    # PaperMod 会使用自己的渲染方式，所以这里关闭默认渲染
+    # 链接启用 Hugo 内置解析，以支持 Markdown 相对页面链接；图片仍由 PaperMod 处理
     # ─────────────────────────────────────────────────────────────
     renderHooks:
       image:
         useEmbedded: never          # 禁用 Hugo 默认图片渲染
       link:
-        useEmbedded: never          # 禁用 Hugo 默认链接渲染
+        useEmbedded: auto           # 使用 Hugo 内置解析 Markdown 页面链接
 
     # ─────────────────────────────────────────────────────────────
     # 最终 HTML 输出行为

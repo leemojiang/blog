@@ -21,17 +21,17 @@ description: >-
 
 ## 文件目录
 
-1. [输入、武器控制与其他特殊类型]({{< relref "01-输入-武器控制与特殊类型.md" >}})
-2. [Control Surface 与 Aim 组合]({{< relref "02-Control-Surface与Aim组合.md" >}})
-3. [Camera 与 Zoom 的单例 Runtime]({{< relref "03-Camera与Zoom的单例Runtime.md" >}})
-4. [HUD 与动态 Runtime]({{< relref "04-HUD与动态Runtime.md" >}})
-5. [IAmmoStatus 与能力接口]({{< relref "05-IAmmoStatus与能力接口.md" >}})
-6. [事件推送、Pull 与能力接口]({{< relref "06-事件推送-Pull与能力接口.md" >}})
-7. [DSH UI 调研问题]({{< relref "07-DSH-UI调研问题.md" >}})
-8. [DSH UI Plugin 的调研结果]({{< relref "08-DSH-UI调研结果.md" >}})
-9. [DSH UI 与游戏数据流]({{< relref "09-DSH-UI与游戏数据流.md" >}})
-10. [Surface 的组装与动态生命周期]({{< relref "10-Surface的组装与动态生命周期.md" >}})
-11. [Surface 的数据、逻辑与 Present]({{< relref "11-Surface的数据逻辑与Present.md" >}})
+1. [输入、武器控制与其他特殊类型](./01-输入-武器控制与特殊类型.md)
+2. [Control Surface 与 Aim 组合](./02-Control-Surface与Aim组合.md)
+3. [Camera 与 Zoom 的单例 Runtime](./03-Camera与Zoom的单例Runtime.md)
+4. [HUD 与动态 Runtime](./04-HUD与动态Runtime.md)
+5. [IAmmoStatus 与能力接口](./05-IAmmoStatus与能力接口.md)
+6. [事件推送、Pull 与能力接口](./06-事件推送-Pull与能力接口.md)
+7. [DSH UI 调研问题](./07-DSH-UI调研问题.md)
+8. [DSH UI Plugin 的调研结果](./08-DSH-UI调研结果.md)
+9. [DSH UI 与游戏数据流](./09-DSH-UI与游戏数据流.md)
+10. [Surface 的组装与动态生命周期](./10-Surface的组装与动态生命周期.md)
+11. [Surface 的数据、逻辑与 Present](./11-Surface的数据逻辑与Present.md)
 
 ## 整理说明
 
