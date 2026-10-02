@@ -4,7 +4,7 @@ date: 2026-09-21
 draft: false
 math: true
 layout: single
-ShowToc: false
+ShowToc: true
 tags:
   - "战地 2"
   - "游戏架构"
@@ -16,20 +16,33 @@ categories:
 description: >-
   从 Battlefield 2 与 Refractor 2 的内容组织边界出发，逐步讨论 Unity 集成、组件语义、Runtime、Capability、Runtime View 和接口隔离。
 ---
-
 本组笔记整理“分析战地 2 架构”这段讨论，保留原始问答结构。讨论从 Battlefield 2 / Refractor 2 的内容组织方式开始，逐步延伸到 Unity 集成、Component 语义、Hexagonal Architecture、DSH/Cordis 式 Runtime、Capability、Runtime View，以及 Interface Segregation Principle（ISP）。
 
 每个问题单独成篇，尽量保留原始提问、回答中的代码和图示。为了避免把讨论过度概括，事实核验、概念修正和补充内容会放在对应文件的“整理说明”中。
 
 ## 文件目录
 
-1. [战地 2 架构的核心边界](./01-战地2架构的核心边界.md)
-2. [Unity 中的低成本实现路径](./02-Unity中的低成本实现路径.md)
-3. [组件组合与依赖治理](./03-组件组合与依赖治理.md)
-4. [Hexagonal Architecture 与组件语义](./04-Hexagonal-Architecture与组件语义.md)
-5. [从 Plugin 到 Runtime 的组件简化](./05-从Plugin到Runtime的组件简化.md)
-6. [Super Runtime 与 Runtime View](./06-Super-Runtime与Runtime-View.md)
-7. [ISP 在游戏 Runtime 中的应用](./07-ISP在游戏Runtime中的应用.md)
+1. [战地 2 架构的核心边界](#chapter-01)
+2. [Unity 中的低成本实现路径](#chapter-02)
+3. [组件组合与依赖治理](#chapter-03)
+4. [Hexagonal Architecture 与组件语义](#chapter-04)
+5. [从 Plugin 到 Runtime 的组件简化](#chapter-05)
+6. [Super Runtime 与 Runtime View](#chapter-06)
+7. [ISP 在游戏 Runtime 中的应用](#chapter-07)
+
+{{< include-chapter "01-战地2架构的核心边界.md" "chapter-01" "战地 2 架构的核心边界" >}}
+
+{{< include-chapter "02-Unity中的低成本实现路径.md" "chapter-02" "Unity 中的低成本实现路径" >}}
+
+{{< include-chapter "03-组件组合与依赖治理.md" "chapter-03" "组件组合与依赖治理" >}}
+
+{{< include-chapter "04-Hexagonal-Architecture与组件语义.md" "chapter-04" "Hexagonal Architecture 与组件语义" >}}
+
+{{< include-chapter "05-从Plugin到Runtime的组件简化.md" "chapter-05" "从 Plugin 到 Runtime 的组件简化" >}}
+
+{{< include-chapter "06-Super-Runtime与Runtime-View.md" "chapter-06" "Super Runtime 与 Runtime View" >}}
+
+{{< include-chapter "07-ISP在游戏Runtime中的应用.md" "chapter-07" "ISP 在游戏 Runtime 中的应用" >}}
 
 ## 整理顺序
 
