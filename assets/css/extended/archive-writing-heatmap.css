@@ -1,0 +1,201 @@
+.writing-heatmaps {
+  margin: 1.5rem 0 3rem;
+}
+
+.writing-year {
+  margin: 1rem 0 2.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--entry);
+}
+
+.writing-year-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.writing-year-heading h2,
+.writing-year-heading p {
+  margin: 0;
+}
+
+.writing-year-heading p,
+.writing-month-total small,
+.writing-legend {
+  color: var(--secondary);
+  font-size: 0.85rem;
+}
+
+.writing-calendar {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+}
+
+.writing-weekdays,
+.writing-week {
+  display: grid;
+  grid-template-rows: repeat(7, 0.72rem);
+  gap: 0.2rem;
+}
+
+.writing-weekdays {
+  padding-top: 1.45rem;
+  color: var(--secondary);
+  font-size: 0.65rem;
+  line-height: 0.72rem;
+  text-align: center;
+}
+
+.writing-calendar-main {
+  min-width: 40rem;
+}
+
+.writing-month-labels,
+.writing-weeks {
+  display: grid;
+  grid-template-columns: repeat(53, 0.72rem);
+  gap: 0.2rem;
+}
+
+.writing-month-labels {
+  height: 1.2rem;
+  color: var(--secondary);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.writing-month-labels span {
+  overflow: visible;
+}
+
+.writing-weeks {
+  grid-auto-flow: column;
+  grid-auto-columns: 0.72rem;
+  grid-template-rows: 5.92rem;
+}
+
+.writing-week {
+  grid-template-columns: 1fr;
+}
+
+.writing-day,
+.writing-legend i {
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.writing-day[data-level="1"],
+.writing-legend i[data-level="1"] {
+  background: #9be9a8;
+}
+
+.writing-day[data-level="2"],
+.writing-legend i[data-level="2"] {
+  background: #40c463;
+}
+
+.writing-day[data-level="3"],
+.writing-legend i[data-level="3"] {
+  background: #30a14e;
+}
+
+.writing-day[data-level="4"],
+.writing-legend i[data-level="4"] {
+  background: #216e39;
+}
+
+[data-theme="dark"] .writing-day[data-level="1"],
+[data-theme="dark"] .writing-legend i[data-level="1"] {
+  background: #0e4429;
+}
+
+[data-theme="dark"] .writing-day[data-level="2"],
+[data-theme="dark"] .writing-legend i[data-level="2"] {
+  background: #006d32;
+}
+
+[data-theme="dark"] .writing-day[data-level="3"],
+[data-theme="dark"] .writing-legend i[data-level="3"] {
+  background: #26a641;
+}
+
+[data-theme="dark"] .writing-day[data-level="4"],
+[data-theme="dark"] .writing-legend i[data-level="4"] {
+  background: #39d353;
+}
+
+.writing-day-outside {
+  visibility: hidden;
+}
+
+.writing-legend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  margin-top: 0.65rem;
+}
+
+.writing-legend i {
+  display: inline-block;
+}
+
+.writing-legend-note {
+  margin-left: 0.75rem;
+}
+
+.writing-month-totals {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+}
+
+.writing-month-total {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  background: var(--code-bg);
+}
+
+.writing-month-total span {
+  color: var(--secondary);
+  font-size: 0.78rem;
+}
+
+.writing-month-total strong {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.writing-month-total small {
+  font-size: 0.7rem;
+}
+
+@media (max-width: 640px) {
+  .writing-year {
+    padding: 0.85rem;
+  }
+
+  .writing-year-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .writing-month-totals {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

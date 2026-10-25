@@ -1,0 +1,104 @@
+{{- $pages := . -}}
+{{- $isChinese := eq site.Language.Lang "zh" -}}
+{{- $weekdayLabels := slice "S" "M" "T" "W" "T" "F" "S" -}}
+{{- if $isChinese -}}
+  {{- $weekdayLabels = slice "日" "一" "二" "三" "四" "五" "六" -}}
+{{- end -}}
+
+<section class="writing-heatmaps" aria-label="{{ if $isChinese }}年度写作字数日历{{ else }}Yearly writing word-count calendar{{ end }}">
+  {{- range $pages.GroupByPublishDate "2006" }}
+    {{- if ne .Key "0001" }}
+      {{- $year := .Key -}}
+      {{- $yearPages := .Pages -}}
+      {{- $dayStats := dict -}}
+      {{- $monthStats := dict -}}
+      {{- $yearWords := 0 -}}
+      {{- $maxDailyWords := 0 -}}
+      {{- range $yearPages -}}
+        {{- $dateKey := .Date.Format "2006-01-02" -}}
+        {{- $oldDay := default (dict "words" 0 "posts" 0) (index $dayStats $dateKey) -}}
+        {{- $dayWords := add (int $oldDay.words) (int .WordCount) -}}
+        {{- $dayStats = merge $dayStats (dict $dateKey (dict "words" $dayWords "posts" (add (int $oldDay.posts) 1))) -}}
+        {{- $monthKey := .Date.Format "1" -}}
+        {{- $oldMonth := default (dict "words" 0 "posts" 0) (index $monthStats $monthKey) -}}
+        {{- $monthStats = merge $monthStats (dict $monthKey (dict "words" (add (int $oldMonth.words) (int .WordCount)) "posts" (add (int $oldMonth.posts) 1))) -}}
+        {{- $yearWords = add $yearWords (int .WordCount) -}}
+        {{- if gt $dayWords $maxDailyWords -}}
+          {{- $maxDailyWords = $dayWords -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $start := time.AsTime (printf "%s-01-01" $year) -}}
+      {{- $gridStart := $start.AddDate 0 0 (mul -1 (int $start.Weekday)) -}}
+
+      <section class="writing-year" aria-labelledby="writing-year-{{ $year }}">
+        <div class="writing-year-heading">
+          <h2 id="writing-year-{{ $year }}">{{ $year }}</h2>
+          <p>{{ if $isChinese }}{{ lang.FormatNumber 0 $yearWords }} 字 · {{ len $yearPages }} 篇文章{{ else }}{{ lang.FormatNumber 0 $yearWords }} words · {{ len $yearPages }} posts{{ end }}</p>
+        </div>
+
+        <div class="writing-calendar" role="group" aria-label="{{ if $isChinese }}{{ $year }} 年每日发表字数{{ else }}Daily published words in {{ $year }}{{ end }}">
+          <div class="writing-weekdays" aria-hidden="true">
+            {{- range $weekdayLabels }}<span>{{ . }}</span>{{ end -}}
+          </div>
+          <div class="writing-calendar-main">
+            <div class="writing-month-labels" aria-hidden="true">
+              {{- range $week := seq 0 52 }}
+                {{- $weekStart := $gridStart.AddDate 0 0 (mul $week 7) }}
+                <span>
+                  {{- range $weekday := seq 0 6 }}
+                    {{- $cellDate := $weekStart.AddDate 0 0 $weekday }}
+                    {{- if and (eq (int $cellDate.Day) 1) (eq (int $cellDate.Year) (int $year)) -}}
+                      {{- if $isChinese }}{{ $cellDate.Format "1月" }}{{ else }}{{ $cellDate.Format "Jan" }}{{ end -}}
+                    {{- end -}}
+                  {{- end -}}
+                </span>
+              {{- end }}
+            </div>
+            <div class="writing-weeks">
+              {{- range $week := seq 0 52 }}
+                {{- $weekStart := $gridStart.AddDate 0 0 (mul $week 7) }}
+                <div class="writing-week">
+                  {{- range $weekday := seq 0 6 }}
+                    {{- $cellDate := $weekStart.AddDate 0 0 $weekday }}
+                    {{- if eq (int $cellDate.Year) (int $year) }}
+                      {{- $dateKey := $cellDate.Format "2006-01-02" -}}
+                      {{- $stat := default (dict "words" 0 "posts" 0) (index $dayStats $dateKey) -}}
+                      {{- $words := int $stat.words -}}
+                      {{- $level := 0 -}}
+                      {{- if and (gt $words 0) (gt $maxDailyWords 0) -}}
+                        {{- $ratio := div (mul $words 100) $maxDailyWords -}}
+                        {{- if lt $ratio 25 }}{{ $level = 1 }}{{ else if lt $ratio 50 }}{{ $level = 2 }}{{ else if lt $ratio 75 }}{{ $level = 3 }}{{ else }}{{ $level = 4 }}{{ end -}}
+                      {{- end -}}
+                      <span class="writing-day" data-level="{{ $level }}" title="{{ if $isChinese }}{{ $dateKey }}：{{ lang.FormatNumber 0 $words }} 字，{{ $stat.posts }} 篇文章{{ else }}{{ $dateKey }}: {{ lang.FormatNumber 0 $words }} words, {{ $stat.posts }} posts{{ end }}" aria-label="{{ if $isChinese }}{{ $dateKey }}，{{ lang.FormatNumber 0 $words }} 字，{{ $stat.posts }} 篇文章{{ else }}{{ $dateKey }}, {{ lang.FormatNumber 0 $words }} words, {{ $stat.posts }} posts{{ end }}"></span>
+                    {{- else }}
+                      <span class="writing-day writing-day-outside" aria-hidden="true"></span>
+                    {{- end }}
+                  {{- end }}
+                </div>
+              {{- end }}
+            </div>
+          </div>
+        </div>
+
+        <div class="writing-legend" aria-label="{{ if $isChinese }}颜色越深，发表字数越多{{ else }}Darker cells indicate more words published{{ end }}">
+          <span>{{ if $isChinese }}少{{ else }}Less{{ end }}</span>
+          {{- range seq 0 4 }}<i data-level="{{ . }}" aria-hidden="true"></i>{{ end }}
+          <span>{{ if $isChinese }}多{{ else }}More{{ end }}</span>
+          <span class="writing-legend-note">{{ if $isChinese }}按当天字数分级{{ else }}Scaled within each year{{ end }}</span>
+        </div>
+
+        <div class="writing-month-totals" aria-label="{{ if $isChinese }}每月发表字数{{ else }}Words published each month{{ end }}">
+          {{- range seq 1 12 }}
+            {{- $month := printf "%d" . -}}
+            {{- $stat := default (dict "words" 0 "posts" 0) (index $monthStats $month) -}}
+            <div class="writing-month-total">
+              <span>{{- if $isChinese }}{{ printf "%d月" . }}{{ else }}{{ (time.AsTime (printf "%s-%02d-01" $year .)).Format "Jan" }}{{ end -}}</span>
+              <strong>{{ lang.FormatNumber 0 (int $stat.words) }}</strong>
+              <small>{{ if $isChinese }}字 · {{ $stat.posts }} 篇{{ else }}words · {{ $stat.posts }} posts{{ end }}</small>
+            </div>
+          {{- end }}
+        </div>
+      </section>
+    {{- end }}
+  {{- end }}
+</section>
